@@ -62,6 +62,9 @@ const rutCliente = (req, res) => {
         }
     } catch (e) {
         console.log(`Error: ${e}`)
+        res.json({
+            message: `Error: ${e}`
+        })
     }
 }
 
