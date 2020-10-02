@@ -35,13 +35,14 @@ const saludoCliente = (req, res) => {
         } = req.body;
         let saludo = getSaludo(nombres, paterno, materno, sexo);
         res.json({
-            message: "Saludo creado",
+            message: "V",
             data: saludo,
         });
     } catch (e) {
         console.log(`Error: ${e}`)
         res.json({
-            message: `Error: ${e}`
+            message: "I",
+            data: `Error: ${e}`
         })
     }
 };

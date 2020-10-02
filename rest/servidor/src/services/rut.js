@@ -50,20 +50,21 @@ const rutCliente = (req, res) => {
         if (rut[rut.length - 1] == dv) {
             console.log(`El digito es valido`)
             res.json({
-                message: 'rut valido',
-                dv: `${dv}`
+                message: 'V',
+                data: `${dv}`
             })
         } else {
             console.log(`El digito es invalido`)
             res.json({
-                message: 'rut invalido',
+                message: 'I',
                 dv: `${dv}`
             })
         }
     } catch (e) {
         console.log(`Error: ${e}`)
         res.json({
-            message: `Error: ${e}`
+            message: "I",
+            data: `Error: ${e}`
         })
     }
 }
