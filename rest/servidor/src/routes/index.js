@@ -1,23 +1,13 @@
-// const serviceNombre = require("../service/nombre");
-// const serviceRut = require("../service/rut");
-
-// module.exports = (app) => {
-//     app.use("/rut", serviceRut);
-//     app.use("/nombre", serviceNombre);
-// };
-
-var express = require("express");
-var router = express.Router();
-var {
-    prueba
+const express = require("express");
+const router = express.Router();
+const {
+    rutCliente
 } = require('../services/rut');
+const {
+    saludoCliente
+} = require('../services/nombre');
 
-// var {
-//     responseNombreSexo
-// } = require('../services/nombre');
-
-router.post('/rut', prueba);
-// router.post('/nombre', responseNombreSexo);
-
+router.post('/rut', rutCliente);
+router.post('/nombre', saludoCliente);
 
 module.exports = router;

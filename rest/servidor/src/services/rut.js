@@ -13,6 +13,7 @@ const formatRut = (rut) => {
     return getRut
 }
 
+
 const validaDV = (rut) => {
     let secuencia = [2, 3, 4, 5, 6, 7, 2, 3, 4, 5, 6, 7],
         invertirRut = '',
@@ -23,43 +24,47 @@ const validaDV = (rut) => {
     for (let i = digitosRut.length - 2; i >= 0; i--) {
         invertirRut = invertirRut + digitosRut[i];
     }
-    console.log(`invertirRut: ${invertirRut}`)
-
+    // algoritmo para obtener el digito verificador
     for (let i = 0; i <= invertirRut.length - 1; i++) {
         multiAux = multiAux + (Number(invertirRut[i] * secuencia[i]));
-
     }
     let division = (Math.trunc(multiAux / 11)) * 11;
     let rest = multiAux - division;
 
     let dv = 11 - rest;
-    if (dv == 11) {
+    if (dv == 11)
         dv = 0;
-    } else if (dv == 10) {
+    else if (dv == 10)
         dv = "k";
-    }
+
     console.log(`digito verificador: ${dv}`);
-    return (dv);
+    return dv
 }
 
-const prueba = (req, res) => {
-    let {
-        rut
-    } = req.body
-    let dv = validaDV(rut)
-    if (rut[rut.length - 1] == dv) {
-        console.log('[respuesta al cliente]: V') //V = valido
-        res.json({
-            message: 'V',
-        })
-    } else {
-        console.log('[Respuesta al cliente]: I') //I = invalido
-        res.json({
-            message: 'I',
-        })
+const rutCliente = (req, res) => {
+    try {
+        let {
+            rut
+        } = req.body
+        let dv = validaDV(rut)
+        if (rut[rut.length - 1] == dv) {
+            console.log(`El digito es valido`)
+            res.json({
+                message: 'rut valido',
+                dv: `${dv}`
+            })
+        } else {
+            console.log(`El digito es invalido`)
+            res.json({
+                message: 'rut invalido',
+                dv: `${dv}`
+            })
+        }
+    } catch (e) {
+        console.log(`Error: ${e}`)
     }
 }
 
 module.exports = {
-    prueba
+    rutCliente
 }

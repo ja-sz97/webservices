@@ -1,8 +1,6 @@
 const express = require("express");
 
-// rutas
-// const routes = require('./routes/index')
-
+// inicializo express
 const app = express();
 app.use(
   express.urlencoded({
@@ -10,11 +8,11 @@ app.use(
   })
 );
 
+// lectura de json
 app.use(express.json());
 app.use(require("./routes/index"));
-// routes(app)
 
-// port
+// configuracion del puerto
 const port = process.env.port || 4000;
 
 app.listen(port, () => {
