@@ -22,12 +22,7 @@
       ?>
     </section>
 
-    <section>
-      <?php
-        $mvc = new enlacesPaginas();
-        $mvc -> Rut();
-      ?>
-    </section>
+
 
 </body>
 </html>

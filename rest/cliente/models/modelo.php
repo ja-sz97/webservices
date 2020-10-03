@@ -18,7 +18,7 @@
         public function Rut(){
 
             if(isset($_POST['rut'])){
-                $data = $_POST['rut'];
+                $data = array("rut" => $_POST['rut']);
                 // echo $data;
                 $api = curl_init("http://localhost:4000/rut");
                 curl_setopt($api, CURLOPT_RETURNTRANSFER, true);
@@ -32,7 +32,6 @@
                      return $resp;
                   }
             }
-            
         }
     }
 

@@ -1,4 +1,9 @@
-
+<?php 
+	if($_POST){
+		$respuesta = new Controller();
+		$respuesta -> ctrRut();
+	}		
+?>	
 <div class="container">
 	<div class="row mt-3 d-flex justify-content-center">
 		<div class="col-6">
