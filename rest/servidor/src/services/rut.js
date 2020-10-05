@@ -1,3 +1,4 @@
+// funcion para quitar los "." y "-" del rut ingresado
 const formatRut = (rut) => {
     let getRut = ''
     try {
@@ -12,8 +13,7 @@ const formatRut = (rut) => {
     console.log(`rut: ${getRut}`)
     return getRut
 }
-
-
+// algoritmo para obtener el digito verificador
 const validaDV = (rut) => {
     let secuencia = [2, 3, 4, 5, 6, 7, 2, 3, 4, 5, 6, 7],
         invertirRut = '',
@@ -40,18 +40,17 @@ const validaDV = (rut) => {
     console.log(`digito verificador: ${dv}`);
     return dv
 }
-
+// funcion que responderá (en json) la peticion del cliente
 const rutCliente = (req, res) => {
+    let { rut } = req.body
     try {
-        let {
-            rut
-        } = req.body
-        let dv = validaDV(rut)
+        let dv = validaDV(rut),
+            rutFormateado = formatRut(rut)
         if (rut[rut.length - 1] == dv) {
             console.log(`El digito es valido`)
             res.json({
                 message: 'V',
-                data: `${dv}`
+                dv: `${dv}`
             })
         } else {
             console.log(`El digito es invalido`)

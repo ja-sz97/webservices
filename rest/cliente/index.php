@@ -4,6 +4,3 @@ require_once "models/modelo.php";
 
 $mvc = new Controller();
 $mvc -> plantilla();
-
-
-?>

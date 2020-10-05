@@ -1,28 +1,31 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <title>Redes</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/estilos.css">
+  <script src="https://kit.fontawesome.com/b097035380.js" crossorigin="anonymous"></script>
+  <title>Web Service</title>
 </head>
+
 <body>
-    <h1>Trabajo Redes</h1>
-
-
+  <?php
+  include "header.php";
+  ?>
+  <section>
     <?php
-        include "nav.php";
+    $mvc = new Controller();
+    $mvc->enlacesPaginasController();
     ?>
-
-
-    <section>
-      <?php
-        $mvc = new Controller();
-        $mvc -> enlacesPaginasController();
-      ?>
-    </section>
-
-
-
+  </section>
+  <?php
+  include "footer.php";
+  ?>
+  <script src="js/jquery-3.5.1.slim.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
 </body>
+
 </html>
