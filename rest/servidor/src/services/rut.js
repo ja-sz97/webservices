@@ -11,6 +11,7 @@ const formatRut = (rut) => {
         console.log(`error: ${e}`)
     }
     console.log(`rut: ${getRut}`)
+    // if (getRut[getRut.length - 1] == "k" || getRut[getRut.length - 1])
     return getRut
 }
 // algoritmo para obtener el digito verificador
@@ -40,22 +41,66 @@ const validaDV = (rut) => {
     console.log(`digito verificador: ${dv}`);
     return dv
 }
+const validaNumeros = (rut) =>{
+    let rutSinDv = rut.slice(0,-1)
+    console.log (rutSinDv)
+    if (!isNaN(rutSinDv)){
+        return true
+    }
+    else{
+        return false
+    }
+}
+const validaK = (rut) =>{
+    let soloDv = rut[rut.length-1]
+    console.log ("Dv: " + soloDv)
+    if (soloDv == "k" || soloDv == "K" || !isNaN(soloDv)){
+        return true
+    }
+    else{
+        return false
+    }
+}
+const validaFormato = (rut) =>{
+    let format = formatRut(rut)
+    try{
+        if ((format.length == 8 || format.length == 9) && validaNumeros(format) && validaK (format)){
+            return true
+        }
+        else{
+            return false
+        }
+
+    }catch (e){
+        console.log(`error: ${e}`)
+    }
+}
 // funcion que responderá (en json) la peticion del cliente
 const rutCliente = (req, res) => {
     let { rut } = req.body
     try {
-        let dv = validaDV(rut)
-        if (rut[rut.length - 1] == dv) {
-            console.log(`El digito es valido`)
+        let validacion=validaFormato(rut)
+        if (validacion == true){
+            let dv = validaDV(rut)
+            if (rut[rut.length - 1] == dv) {
+                console.log(`El digito es valido`)
+                res.json({
+                    message: 'V',
+                    dv: `${dv}`
+                })
+            } else {
+                console.log(`El digito es invalido`)
+                res.json({
+                    message: 'I',
+                    dv: `${dv}`
+                })
+            }
+        }
+        else{
+            console.log(`El formato es invalido`)
             res.json({
-                message: 'V',
-                dv: `${dv}`
-            })
-        } else {
-            console.log(`El digito es invalido`)
-            res.json({
-                message: 'I',
-                dv: `${dv}`
+                message: 'IN',
+                data: "Formato invalido"
             })
         }
     } catch (e) {

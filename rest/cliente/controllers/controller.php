@@ -25,7 +25,13 @@ class Controller
             echo '<div class="alert alert-success" role="alert">';
             echo "El dígito verificador (" . $resJson["dv"] . ") ingresado es <strong>valido</strong>";
             echo '</div>';
-        } else {
+        }
+        else if($resJson["message"] == "IN"){
+            echo '<div class="alert alert-danger" role="alert">';
+            echo $resJson["data"];
+            echo '</div>';
+        } 
+        else if($resJson["message"] == "I"){
             echo '<div class="alert alert-danger" role="alert">';
             echo "El dígito verificador ingresado es <strong>invalido</strong><br>";
             echo "El dv correcto es: <strong>" . $resJson["dv"] . "</strong>";
