@@ -19,7 +19,7 @@ class Controller
     }
     public function ctrRut()
     {
-        $res = enlacesPaginas::Rut();
+        $res = request::Rut();
         $resJson = json_decode($res, true);
         if ($resJson["message"] == "V") {
             echo '<div class="alert alert-success" role="alert">';
@@ -29,6 +29,20 @@ class Controller
             echo '<div class="alert alert-danger" role="alert">';
             echo "El dígito verificador ingresado es <strong>invalido</strong><br>";
             echo "El dv correcto es: <strong>" . $resJson["dv"] . "</strong>";
+            echo '</div>';
+        }
+    }
+    public function ctrSaludo()
+    {
+        $res = request::Saludo();
+        $resJson = json_decode ($res, true);
+        if ($resJson["message"] == "V" ){
+            echo '<div class="alert alert-success" role="alert">';
+            echo "(" . $resJson["data"] . ")";
+            echo '</div>';
+        } else{
+            echo '<div class="alert alert-danger" role="alert">';
+            echo "<strong>Error</strong><br>";
             echo '</div>';
         }
     }
