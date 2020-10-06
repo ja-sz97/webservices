@@ -44,8 +44,7 @@ const validaDV = (rut) => {
 const rutCliente = (req, res) => {
     let { rut } = req.body
     try {
-        let dv = validaDV(rut),
-            rutFormateado = formatRut(rut)
+        let dv = validaDV(rut)
         if (rut[rut.length - 1] == dv) {
             console.log(`El digito es valido`)
             res.json({

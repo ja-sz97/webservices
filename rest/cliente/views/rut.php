@@ -1,16 +1,3 @@
-<!-- <div class="container">
-	<div class="row mt-3 d-flex justify-content-center">
-		<div class="col-6">
-            <form method="POST">
-				<div class="form-group">
-					<label for="nombre">Rut</label>
-					<input type="text" class="form-control" placeholder="Rut" name="rut">
-				</div>
-				<button class="btn btn-primary" type="submit">Enviar</button>
-			</form>
-		</div>
-	</div>
-</div> -->
 <div class="container mt-5">
 	<div class="row d-flex justify-content-center">
 		<div class="col-11 col-ms-11 col-lg-4 bg-white rounded border shadow-sm mx-1 mb-3 mb-lg-0">

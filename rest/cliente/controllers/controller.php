@@ -6,7 +6,7 @@ class Controller
         include "views/template.php";
     }
     #interaccion del usuario
-    public function enlacesPaginasController()
+    public static function enlacesPaginasController()
     {
         if (isset($_GET["action"]))
             $enlacesController = $_GET["action"];
@@ -17,7 +17,7 @@ class Controller
 
         include $respuesta;
     }
-    public function ctrRut()
+    public static function ctrRut()
     {
         $res = request::Rut();
         $resJson = json_decode($res, true);
@@ -32,17 +32,17 @@ class Controller
             echo '</div>';
         }
     }
-    public function ctrSaludo()
+    public static function ctrSaludo()
     {
         $res = request::Saludo();
-        $resJson = json_decode ($res, true);
-        if ($resJson["message"] == "V" ){
+        $resJson = json_decode($res, true);
+        if ($resJson["message"] == "V") {
             echo '<div class="alert alert-success" role="alert">';
-            echo "(" . $resJson["data"] . ")";
+            echo "<p class='text-center my-0'>" . $resJson["data"] . "</p>";
             echo '</div>';
-        } else{
+        } else if ($resJson["message"] == "I") {
             echo '<div class="alert alert-danger" role="alert">';
-            echo "<strong>Error</strong><br>";
+            echo "<p class='text-center my-0'>" . $resJson["data"] . "</p>";
             echo '</div>';
         }
     }
