@@ -2,13 +2,10 @@ package prueba;
 
 public class redes {
 
-	public static void main(String[] args) {
-		String Rut = "20237913-3";		
-		System.out.println(validarut(Rut));
-		System.out.println(nombrepropio("Esteban Andrés","MOYANO","PEREZ","H"));
-	}
-	
 	public static String validarut (String Rut) {
+		if(Rut.length() == 0) {
+			return "Ingrese su Rut";
+		}
 		int rutlength = Rut.length();
 		for(int i = 0; i<rutlength; ++i) {
 			int aux = 0;
@@ -63,15 +60,15 @@ public class redes {
 		int resto = suma % 11;
 		int digito = 11 - resto;
 		if (digito != Character.getNumericValue(Rut.charAt(9)) && digito !=10 && digito !=11) {
-			return "El rut ingresado no es valido";
+			return "Digito Verificador ingresado no valido";
 		}
 	
 		if(digito == 11 && (int)Rut.charAt(9) != 48 ) {
-			return "El rut ingresado no es valido";
+			return "Digito Verificador ingresado no valido";
 		}
 		
 		if(digito == 10 && (int)Rut.charAt(9) != 107) {
-			return "El rut ingresado no es valido";
+			return "Digito Verificador ingresado no valido";
 		}
 		
 		return "Rut valido";
@@ -80,7 +77,7 @@ public class redes {
 
 	public static String nombrepropio(String Nombres, String Ap_paterno, String Ap_materno, String Genero){
 		if(Nombres.length() == 0) {
-			return "Por favor ingrese sus nombres";
+			return "Por favor ingrese su(s) nombre(s)";
 		}
 		if(Ap_paterno.length() == 0) {
 			return "Por favor ingrese su apellido paterno";
@@ -92,23 +89,36 @@ public class redes {
 		String Nomb = Nombres.toLowerCase();
 		String pater = Ap_paterno.toLowerCase();
 		String mater = Ap_materno.toLowerCase();
-		if(Nombres.indexOf(" ") == -1) {
-			return "Por favor asegurese que ingresó sus dos nombres";
-		}
-		String[] nombresfinal = Nomb.split(" ");
-		nombresfinal[0] = nombresfinal[0].substring(0, 1).toUpperCase() + nombresfinal[0].substring(1);
-		nombresfinal[1] = nombresfinal[1].substring(0, 1).toUpperCase() + nombresfinal[1].substring(1);
+		
 		pater = pater.substring(0, 1).toUpperCase() + pater.substring(1);
 		mater = mater.substring(0, 1).toUpperCase() + mater.substring(1);
+		char validador = Genero.charAt(0);
 		
-		if(Genero == "H" || Genero == "h") {
-			return ("Buenas Sr. " + nombresfinal[0] + " " + nombresfinal[1] + " " + pater + " "+ mater);
+		if(Nombres.indexOf(" ") == -1) {
+			Nomb = Nomb.substring(0, 1).toUpperCase() + Nomb.substring(1);
+			if(validador == 72) {
+				return ("Hola Sr. " + Nomb + " " + pater + " "+ mater);
+			}
+			else if (validador == 77) {
+				return ("Hola Sra. " + Nomb + " " + pater + " "+ mater);
+				}
+
+		}
+		if (Nombres.indexOf(" ") !=-1) {
+			String[] nombresfinal = Nomb.split(" ");
+			nombresfinal[0] = nombresfinal[0].substring(0, 1).toUpperCase() + nombresfinal[0].substring(1);
+			nombresfinal[1] = nombresfinal[1].substring(0, 1).toUpperCase() + nombresfinal[1].substring(1);
+			
+			if(validador == 72) {
+				return ("Hola Sr. " + nombresfinal[0] + " " + nombresfinal[1] + " " + pater + " "+ mater);
+			}
+			else if (validador == 77) {
+				return ("Hola Sra. " + nombresfinal[0] + " " + nombresfinal[1] + " " + pater + " "+ mater);
+				}
+
+			
 		}
 		
-		else if (Genero == "M" || Genero == "m") {
-			return ("Buenas Sra. " + nombresfinal[0] + " " + nombresfinal[1] + " " + pater + " "+ mater);
-			}
-
 		return "Ingrese un genero valido";}
 
 }
