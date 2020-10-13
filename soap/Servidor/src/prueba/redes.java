@@ -5,6 +5,7 @@ public class redes {
 	public static void main(String[] args) {
 		String Rut = "20237913-3";		
 		System.out.println(validarut(Rut));
+		System.out.println(nombrepropio("Esteban Andrés","MOYANO","PEREZ","H"));
 	}
 	
 	public static String validarut (String Rut) {
@@ -75,5 +76,39 @@ public class redes {
 		
 		return "Rut valido";
 	}
+	
+
+	public static String nombrepropio(String Nombres, String Ap_paterno, String Ap_materno, String Genero){
+		if(Nombres.length() == 0) {
+			return "Por favor ingrese sus nombres";
+		}
+		if(Ap_paterno.length() == 0) {
+			return "Por favor ingrese su apellido paterno";
+		}
+		if(Ap_materno.length() == 0) {
+			return "Por favor ingrese su apellido materno";
+		}
+		
+		String Nomb = Nombres.toLowerCase();
+		String pater = Ap_paterno.toLowerCase();
+		String mater = Ap_materno.toLowerCase();
+		if(Nombres.indexOf(" ") == -1) {
+			return "Por favor asegurese que ingresó sus dos nombres";
+		}
+		String[] nombresfinal = Nomb.split(" ");
+		nombresfinal[0] = nombresfinal[0].substring(0, 1).toUpperCase() + nombresfinal[0].substring(1);
+		nombresfinal[1] = nombresfinal[1].substring(0, 1).toUpperCase() + nombresfinal[1].substring(1);
+		pater = pater.substring(0, 1).toUpperCase() + pater.substring(1);
+		mater = mater.substring(0, 1).toUpperCase() + mater.substring(1);
+		
+		if(Genero == "H" || Genero == "h") {
+			return ("Buenas Sr. " + nombresfinal[0] + " " + nombresfinal[1] + " " + pater + " "+ mater);
+		}
+		
+		else if (Genero == "M" || Genero == "m") {
+			return ("Buenas Sra. " + nombresfinal[0] + " " + nombresfinal[1] + " " + pater + " "+ mater);
+			}
+
+		return "Ingrese un genero valido";}
 
 }
