@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:intf="http://DefaultNamespace" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:impl="http://DefaultNamespace" targetNamespace="http://DefaultNamespace" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema xmlns="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://DefaultNamespace">
+      <xsd:element name="validarrut">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="rut" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="validarrutResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="validarrutReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="nombrepropio">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="nombres" type="xsd:string" />
+            <xsd:element name="apellidopa" type="xsd:string" />
+            <xsd:element name="apellidoma" type="xsd:string" />
+            <xsd:element name="sexo" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="nombrepropioResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="nombrepropioReturn" type="xsd:string" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="validarrutResponse">
+    <wsdl:part name="parameters" element="impl:validarrutResponse" />
+  </wsdl:message>
+  <wsdl:message name="nombrepropioResponse">
+    <wsdl:part name="parameters" element="impl:nombrepropioResponse" />
+  </wsdl:message>
+  <wsdl:message name="validarrutRequest">
+    <wsdl:part name="parameters" element="impl:validarrut" />
+  </wsdl:message>
+  <wsdl:message name="nombrepropioRequest">
+    <wsdl:part name="parameters" element="impl:nombrepropio" />
+  </wsdl:message>
+  <wsdl:portType name="SoapService">
+    <wsdl:operation name="validarrut">
+      <wsdl:input name="validarrutRequest" message="impl:validarrutRequest" />
+      <wsdl:output name="validarrutResponse" message="impl:validarrutResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="nombrepropio">
+      <wsdl:input name="nombrepropioRequest" message="impl:nombrepropioRequest" />
+      <wsdl:output name="nombrepropioResponse" message="impl:nombrepropioResponse" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="SoapServiceSoapBinding" type="impl:SoapService">
+    <wsdlsoap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="validarrut">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="validarrutRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="validarrutResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="nombrepropio">
+      <wsdlsoap:operation soapAction="" />
+      <wsdl:input name="nombrepropioRequest">
+        <wsdlsoap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="nombrepropioResponse">
+        <wsdlsoap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="SoapServiceService">
+    <wsdl:port name="SoapService" binding="impl:SoapServiceSoapBinding">
+      <wsdlsoap:address location="http://localhost:8080/SoapService/services/SoapService" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
