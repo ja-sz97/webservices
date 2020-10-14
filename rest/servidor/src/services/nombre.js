@@ -43,10 +43,6 @@ const validar = (nombres, paterno, materno, sexo) => {
 const saludoCliente = (req, res) => {
 
     let { nombres, paterno, materno, sexo } = req.body;
-    // let nombres = req.body.nombres;
-    // let paterno = req.body.paterno;
-    // let materno = req.body.materno;
-    // let sexo = req.body.sexo;
     try {
         let validacion = validar(nombres, paterno, materno, sexo)
         if (validacion) {
