@@ -14,31 +14,31 @@ namespace clientesoap.Controllers
             return View();
         }
 
-        public ActionResult About()
+        public ActionResult Rut()
         {
             ViewBag.Message = "Your application description page.";
 
             return View();
         }
-        public ActionResult Contact()
+        public ActionResult Saludo()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
         [HttpPost]
-        public ActionResult Rut(string rut)
+        public ActionResult VerRut(string rut)
         {
             var ServicioSoap = new ServicioSoap();
-            var model = ServicioSoap.ctrRut(rut);
+            var model = ServicioSoap.CtrRut(rut);
             return View(model);
         }
         [HttpPost]
-        public ActionResult Nombre(string ap, string am, string nombres, string sexo)
+        public ActionResult VerSaludo(string nombres, string ap, string am, string sexo)
         {
 
             var ServicioSoap = new ServicioSoap();
-            var model = ServicioSoap.ctrSaludo(ap, am, nombres, sexo);
+            var model = ServicioSoap.CtrSaludo(nombres, ap, am, sexo);
             return View(model);
         }
     }

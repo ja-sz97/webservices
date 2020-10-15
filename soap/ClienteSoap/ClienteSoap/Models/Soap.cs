@@ -5,7 +5,7 @@ using System.Web;
 
 namespace clientesoap.Models
 {
-    public class SoapRut
+    public class Soap
     {
         public string Rut { get; set; }
     }

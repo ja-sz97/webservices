@@ -8,16 +8,16 @@ namespace clientesoap.Servicios
 {
     public class ServicioSoap
     {
-        public SoapRut ctrRut(string rut)
+        public Soap CtrRut(string rut)
         {
 
             SOAP.redesClient run = new SOAP.redesClient();
-            return new SoapRut()
+            return new Soap()
             {
                 Rut = run.validarut(rut)
             };
         }
-        public SoapSaludo ctrSaludo(string nombres, string ap, string am, string sexo)
+        public SoapSaludo CtrSaludo(string nombres, string ap, string am, string sexo)
         {
             SOAP.redesClient name = new SOAP.redesClient();
             return new SoapSaludo()
