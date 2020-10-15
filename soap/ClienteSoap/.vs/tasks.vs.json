@@ -1,0 +1,10 @@
+{
+  "version": "0.2.1",
+  "tasks": [
+    {
+      "taskLabel": "tarea-Reference",
+      "appliesTo": "ClienteSoap/Connected Services/SOAP/Reference.cs",
+      "type": "launch"
+    }
+  ]
+}

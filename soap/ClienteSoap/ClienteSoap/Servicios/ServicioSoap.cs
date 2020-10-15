@@ -17,5 +17,13 @@ namespace clientesoap.Servicios
                 Rut = run.validarut(rut)
             };
         }
+        public SoapSaludo ctrSaludo(string nombres, string ap, string am, string sexo)
+        {
+            SOAP.redesClient name = new SOAP.redesClient();
+            return new SoapSaludo()
+            {
+                Saludo = name.nombrepropio(nombres, ap, am, sexo)
+            };
+        }
     }
 }

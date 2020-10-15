@@ -20,15 +20,12 @@ namespace clientesoap.Controllers
 
             return View();
         }
-
         public ActionResult Contact()
         {
             ViewBag.Message = "Your contact page.";
 
             return View();
         }
-
-
         [HttpPost]
         public ActionResult Rut(string rut)
         {
@@ -40,10 +37,9 @@ namespace clientesoap.Controllers
         public ActionResult Nombre(string ap, string am, string nombres, string sexo)
         {
 
-            SOAP.redesClient name = new SOAP.redesClient();
-            string nom = name.nombrepropio(nombres, ap, am, sexo);
-            ViewBag.nombre = nom;
-            return View();
+            var ServicioSoap = new ServicioSoap();
+            var model = ServicioSoap.ctrSaludo(ap, am, nombres, sexo);
+            return View(model);
         }
     }
 }
