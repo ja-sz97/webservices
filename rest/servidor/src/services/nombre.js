@@ -30,13 +30,13 @@ const getSaludo = (nombres, paterno, materno, sexo) => {
 };
 // funcion para validar los campos si esque estan vacios o si son null
 const validar = (nombres, paterno, materno, sexo) => {
-    if (nombres === '' || paterno === '' || materno === '' || sexo === '')
-        return false
+    if (nombres === '' || paterno === '' || materno === '' || sexo === ''){
+        return false}
     else if (nombres === 'undefined' || nombres === 'null' ||
         paterno === 'undefined' || paterno === 'null' ||
         materno === 'undefined' || materno === 'null' ||
-        sexo === 'undefined' || sexo === 'null')
-        return false
+        sexo === 'undefined' || sexo === 'null'){
+        return false}
     return true
 }
 // funcion que realizará la respuesta al cliente

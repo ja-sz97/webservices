@@ -3,6 +3,7 @@ package prueba;
 public class redes {
 
 	public static String validarut (String Rut) {
+		String respuesta = "El rut ingresado no es valido";
 		if(Rut.length() == 0) {
 			return "Ingrese su Rut";
 		}
@@ -12,7 +13,7 @@ public class redes {
 			char character = Rut.charAt(i);
 			int ascii = (int) character;
 			if (rutlength!=10) {
-				return "El rut ingresado no es valido";
+				return respuesta;
 			}
 			
 			else if(i<8 || i == 9) {
@@ -21,24 +22,25 @@ public class redes {
 						++aux;}
 
 					else if (aux == 0 && a == 57 && ascii == 107 && i != 9) {
-						return "El rut ingresado no es valido";}
+						return respuesta;}
 					else if (aux == 0 && a == 57 && ascii == 107 && i == 9) {
 						++aux;}
 			}
 				if(aux == 0) {
-					return "El rut ingresado no es valido";
+					return respuesta;
 				}
 				}
 			
 			else if (i == 8 && ascii != 45) {
 				
-				return "El rut ingresado no es valido";
+				return respuesta;
 			}
 		}
 		return validadigito(Rut);
 	}
 	
 	public static String validadigito (String Rut) {
+		String Respuesta2 = "Digito Verificador ingresado no valido";
 		char[] invertido = new char[8];
 		int aux = 2;
 		int suma = 0;
@@ -60,15 +62,15 @@ public class redes {
 		int resto = suma % 11;
 		int digito = 11 - resto;
 		if (digito != Character.getNumericValue(Rut.charAt(9)) && digito !=10 && digito !=11) {
-			return "Digito Verificador ingresado no valido";
+			return Respuesta2;
 		}
 	
 		if(digito == 11 && (int)Rut.charAt(9) != 48 ) {
-			return "Digito Verificador ingresado no valido";
+			return Respuesta2;
 		}
 		
 		if(digito == 10 && (int)Rut.charAt(9) != 107) {
-			return "Digito Verificador ingresado no valido";
+			return Respuesta2;
 		}
 		
 		return "Rut valido";
@@ -123,7 +125,10 @@ public class redes {
 				}
 			}
 			Nomb = Nomb.substring(0, 1).toUpperCase() + Nomb.substring(1);
-			if(validador == 72) {
+			if (Genero.charAt(0) == ' ') {
+				return " Por favor seleccione un sexo"; 
+			}
+			else if(validador == 72) {
 				return ("Hola Sr. " + Nomb + " " + pater + " "+ mater);
 			}
 			else if (validador == 77) {
@@ -147,14 +152,16 @@ public class redes {
 					return "Por favor revise que el nombre no contenga caracteres invalidos";
 				}
 			}
-			if(validador == 72) {
+			if (Genero.charAt(0) == ' ') {
+				return " Por favor seleccione un sexo"; 
+			}
+			else if(validador == 72) {
 				return ("Hola Sr. " + nombresfinal[0] + " " + nombresfinal[1] + " " + pater + " "+ mater);
 			}
 			else if (validador == 77) {
 				return ("Hola Sra. " + nombresfinal[0] + " " + nombresfinal[1] + " " + pater + " "+ mater);
 				}
 
-			
 		}
 		
 		return "Ingrese un genero valido";}

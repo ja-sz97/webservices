@@ -8,10 +8,10 @@ class Controller
     #interaccion del usuario
     public static function enlacesPaginasController()
     {
-        if (isset($_GET["action"]))
-            $enlacesController = $_GET["action"];
-        else
-            $enlacesController = "index";
+        if (isset($_GET["action"])){
+            $enlacesController = $_GET["action"];}
+        else{
+            $enlacesController = "index";}
 
         $respuesta = enlacesPaginas::enlacesPaginasModel($enlacesController);
 

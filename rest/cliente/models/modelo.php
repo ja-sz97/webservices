@@ -18,7 +18,6 @@ class request
     public static function Rut()
     {
         $data = array("rut" => $_POST['rut']);
-        // echo $data;
         $api = curl_init("http://localhost:4000/rut");
         curl_setopt($api, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($api, CURLOPT_CUSTOMREQUEST, "POST");
@@ -39,7 +38,6 @@ class request
             "materno" => $_POST["am"],
             "sexo" => $_POST["sexo"]
         );
-        // echo $data;
         $api = curl_init("http://localhost:4000/nombre");
         curl_setopt($api, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($api, CURLOPT_CUSTOMREQUEST, "POST");
