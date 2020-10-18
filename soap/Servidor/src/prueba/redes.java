@@ -86,6 +86,28 @@ public class redes {
 			return "Por favor ingrese su apellido materno";
 		}
 		
+		if(Nombres.charAt(0)==' ') {
+			return "Por favor revise el formato en que ingresó el nombre";
+		}
+		
+		if(Ap_paterno.charAt(0)==' ') {
+			return "Por favor revise el formato en que ingresó el apellido paterno";
+		}
+		
+		if(Ap_materno.charAt(0)==' ') {
+			return "Por favor revise el formato en que ingresó el apellido materno";
+		}
+		
+		for (int b = 0; b<Ap_paterno.length(); ++b) {
+			if(Character.isLetter(Ap_paterno.charAt(b))== false) {
+				return "Por favor revise que el apellido paterno no contenga caracteres invalidos";
+			}
+		}
+		for (int c = 0; c<Ap_materno.length(); ++c) {
+			if(Character.isLetter(Ap_materno.charAt(c))== false) {
+				return "Por favor revise que el apellido materno no contenga caracteres invalidos";
+			}
+		}
 		String Nomb = Nombres.toLowerCase();
 		String pater = Ap_paterno.toLowerCase();
 		String mater = Ap_materno.toLowerCase();
@@ -95,6 +117,11 @@ public class redes {
 		char validador = Genero.charAt(0);
 		
 		if(Nombres.indexOf(" ") == -1) {
+			for (int a = 0; a<Nombres.length(); ++a) {
+				if(Character.isLetter(Nombres.charAt(a))== false) {
+					return "Por favor revise el formato en que ingresó el apellido nombre";
+				}
+			}
 			Nomb = Nomb.substring(0, 1).toUpperCase() + Nomb.substring(1);
 			if(validador == 72) {
 				return ("Hola Sr. " + Nomb + " " + pater + " "+ mater);
@@ -107,8 +134,19 @@ public class redes {
 		if (Nombres.indexOf(" ") !=-1) {
 			String[] nombresfinal = Nomb.split(" ");
 			nombresfinal[0] = nombresfinal[0].substring(0, 1).toUpperCase() + nombresfinal[0].substring(1);
+			
 			nombresfinal[1] = nombresfinal[1].substring(0, 1).toUpperCase() + nombresfinal[1].substring(1);
 			
+			for (int d = 0; d<nombresfinal[0].length(); ++d) {
+				if(Character.isLetter(nombresfinal[0].charAt(d))== false) {
+					return "Por favor revise que el nombre no contenga caracteres invalidos";
+				}
+			}
+			for (int e = 0; e<nombresfinal[1].length(); ++e) {
+				if(Character.isLetter(nombresfinal[1].charAt(e))== false) {
+					return "Por favor revise que el nombre no contenga caracteres invalidos";
+				}
+			}
 			if(validador == 72) {
 				return ("Hola Sr. " + nombresfinal[0] + " " + nombresfinal[1] + " " + pater + " "+ mater);
 			}

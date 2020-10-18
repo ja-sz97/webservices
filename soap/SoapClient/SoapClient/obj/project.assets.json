@@ -829,19 +829,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\javie\\.nuget\\packages\\": {}
+    "C:\\Users\\esteb\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\javie\\source\\repos\\SoapClient\\SoapClient\\SoapClient.csproj",
+      "projectUniqueName": "C:\\Users\\esteb\\Desktop\\gitkraken\\webservices\\soap\\SoapClient\\SoapClient\\SoapClient.csproj",
       "projectName": "SoapClient",
-      "projectPath": "C:\\Users\\javie\\source\\repos\\SoapClient\\SoapClient\\SoapClient.csproj",
-      "packagesPath": "C:\\Users\\javie\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\javie\\source\\repos\\SoapClient\\SoapClient\\obj\\",
+      "projectPath": "C:\\Users\\esteb\\Desktop\\gitkraken\\webservices\\soap\\SoapClient\\SoapClient\\SoapClient.csproj",
+      "packagesPath": "C:\\Users\\esteb\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\esteb\\Desktop\\gitkraken\\webservices\\soap\\SoapClient\\SoapClient\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\javie\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\esteb\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -904,7 +904,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.402\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
       }
     }
   }

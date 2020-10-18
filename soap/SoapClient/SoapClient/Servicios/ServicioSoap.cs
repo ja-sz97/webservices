@@ -38,7 +38,7 @@ namespace SoapClient.Servicios
             }
             if (sexo == null)
             {
-                sexo = "";
+                sexo = " ";
             }
             return new SoapSaludo()
             {

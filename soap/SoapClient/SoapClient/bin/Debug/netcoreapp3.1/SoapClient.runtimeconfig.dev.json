@@ -1,8 +1,8 @@
 {
   "runtimeOptions": {
     "additionalProbingPaths": [
-      "C:\\Users\\javie\\.dotnet\\store\\|arch|\\|tfm|",
-      "C:\\Users\\javie\\.nuget\\packages"
+      "C:\\Users\\esteb\\.dotnet\\store\\|arch|\\|tfm|",
+      "C:\\Users\\esteb\\.nuget\\packages"
     ]
   }
 }
